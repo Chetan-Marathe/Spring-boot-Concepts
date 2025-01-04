@@ -31,7 +31,8 @@ public class EmployeeController {
     }
     //pathvariable is used to pass parameter onto the url and accept those parameters
 
-    @RequestMapping(value = "/employees", method = RequestMethod.POST)
+//    @RequestMapping(value = "/employees", method = RequestMethod.POST)
+    @PostMapping("/employees")
     public void createEmployee(@RequestBody Employee employee){
         employeeservice.createEmployee(employee);
     }
