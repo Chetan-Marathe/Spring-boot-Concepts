@@ -1,9 +1,8 @@
+//One to one mapping
 package com.example.EmployeeApp1.entity;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Version;
+import jakarta.persistence.*;
+
+import java.util.List;
 
 //Employee needs to be converted into table and this class can persist
 @Entity
@@ -15,8 +14,8 @@ public class Employee {
     String empname;
     String empcity;
 
-
-
+    @OneToOne
+    private Spouse spouse;
 
     public Employee(int empid , String empname , String empcity) {
         this.empid = empid;
@@ -52,6 +51,29 @@ public class Employee {
         this.empcity = empcity;
     }
 
+    public Spouse getSpouse() {
+        return spouse;
+    }
 
+    public void setSpouse(Spouse spouse) {
+        this.spouse = spouse;
+    }
+
+
+    @OneToMany
+    private List<Addresses> addresses;
+    //We are using list because many addresses
+
+
+    public List<Addresses> getAddresses() {
+        return addresses;
+    }
+
+    public void setAddresses(List<Addresses> addresses) {
+        this.addresses = addresses;
+    }
+
+    @ManyToMany
+    private List<Project> projects;
 }
 
