@@ -5,18 +5,22 @@ package com.example.EmployeeApp1.entity;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name="project")
+@Table(name="projects")
 public class Project {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
-    private String client_name;
+    private String clientName;
+
+    public Project(){
+
+    }
 
     public Project(int id, String name, String client_name) {
         this.id = id;
         this.name = name;
-        this.client_name = client_name;
+        this.clientName = client_name;
     }
 
     public int getId() {
@@ -36,10 +40,10 @@ public class Project {
     }
 
     public String getClient_name() {
-        return client_name;
+        return clientName;
     }
 
     public void setClient_name(String client_name) {
-        this.client_name = client_name;
+        this.clientName = client_name;
     }
 }

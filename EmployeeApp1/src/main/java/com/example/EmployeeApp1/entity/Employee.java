@@ -14,7 +14,7 @@ public class Employee {
     String empname;
     String empcity;
 
-    @OneToOne
+    @OneToOne(cascade=CascadeType.ALL)
     private Spouse spouse;
 
     public Employee(int empid , String empname , String empcity) {
@@ -60,7 +60,7 @@ public class Employee {
     }
 
 
-    @OneToMany
+    @OneToMany(cascade=CascadeType.ALL)
     private List<Addresses> addresses;
     //We are using list because many addresses
 
@@ -73,7 +73,7 @@ public class Employee {
         this.addresses = addresses;
     }
 
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.ALL)
     private List<Project> projects;
 }
 

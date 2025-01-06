@@ -6,7 +6,7 @@ package com.example.EmployeeApp1.entity;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name="address")
+@Table(name="addresses")
 public class Addresses {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -17,6 +17,10 @@ public class Addresses {
     private String city;
     private String state;
     private String country;
+
+    public Addresses(){
+
+    }
     public Addresses( String line1, String line2, String zipcode, String city, String state, String country) {
         this.line1 = line1;
         this.line2 = line2;
